@@ -5,7 +5,9 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import Login from './login';
 import Cadastro from './cadastro';
 import Home from './Home'
+import AtendimentosTelas from './AtendimentosTela'
 import { View, Button } from 'react-native';
+import { Linking } from 'react-native';
 import PreencherProntuarioTela from './PreencherProntuarioTela';
 import RelatorioEvolucaoTela from './RelatorioEvolucaoTela';
 import { DrawerItem, CloseButton,FecharTexto } from "./styles"; 
@@ -68,7 +70,7 @@ const Drawer = createDrawerNavigator();
         <DrawerItem title="Home" onPress={() => navigation.navigate('HomeScreen')} />
         <DrawerItem title="Meus Atendimentos" onPress={() => navigation.navigate('Meus Atendimentos')} />
         <DrawerItem title="Relatorio de Paciente" onPress={() => navigation.navigate('Relatorio de Paciente')} />
-        <DrawerItem title="Suporte" onPress={() => navigation.navigate('Suporte')} />
+        <DrawerItem title="Suporte" onPress={() => Linking.openURL('https://wa.me/5561998738838')} />
         <DrawerItem title="Relatorio de Evolucao Medica" onPress={() => navigation.navigate('Relatorio de Evolucao Medica')} />
         <DrawerItem title="Enviar Ficha de Estagio" onPress={() => navigation.navigate('Enviar Ficha de Estagio')} />
         <DrawerItem title="Preencher Prontuario" onPress={() => navigation.navigate('Preencher Prontuario')} />
@@ -80,7 +82,7 @@ const Drawer = createDrawerNavigator();
     return (
       <Drawer.Navigator drawerContent={(props) => <CustomDrawerContent {...props} />}>
         <Drawer.Screen name="HomeScreen" component={Home} options={{ headerShown: false }} />
-        <Drawer.Screen name="Meus Atendimentos" component={AtendimentosTela} options={{ headerShown: false }} />
+        <Drawer.Screen name="Meus Atendimentos" component={AtendimentosTelas} options={{ headerShown: false }} />
         <Drawer.Screen name="Relatorio de Paciente" component={RelatoriosTela} options={{ headerShown: false }} />
         <Drawer.Screen name="Suporte" component={SuporteTela } options={{ headerShown: false }}  />
         <Drawer.Screen name="Informações Médicas" component={InformacoesTela} options={{ headerShown: false }}   />
@@ -156,7 +158,7 @@ export default function App() {
                 />
                 <Stack.Screen 
                     name="Atendimentos" 
-                    component={AtendimentosTela} 
+                    component={AtendimentosTelas} 
                     options={{ headerShown: false }} 
                 />
 
